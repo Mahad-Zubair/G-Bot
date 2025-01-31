@@ -107,7 +107,7 @@ To run this project locally, follow these steps:
 
 ## Video Demo
 
-A video demo of G-Bot in action is available [here](https://link-to-your-video.com). Watch it to see how the chatbot works in real time!
+A video demo of G-Bot in action is available [here]([https://link-to-your-video.com](https://drive.google.com/file/d/1wbcgs8Cx6IoozNLjeeT1jAAM8EAbTPQh/view?usp=sharing)). Watch it to see how the chatbot works in real time!
 
 In the demo, you can see the chatbot's intelligent responses to user input and how it engages in conversations seamlessly.
 
