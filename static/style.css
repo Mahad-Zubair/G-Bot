@@ -1,0 +1,147 @@
+/* General Styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #001F3F;
+    margin: 0;
+    flex-direction: column;
+}
+
+/* Title Styling */
+#page-title {
+    background-color: #001F6F;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+/* Chat Container Styling */
+.chat-container {
+    width: 500px;
+    background-color: #FFFFFF;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Chat Box Styling */
+.chat-box {
+    height: 500px;
+    overflow-y: auto;
+    border: 1px solid #bdbcbc;
+    padding: 15px;
+    margin-bottom: 10px;
+    background: #f4f4f4;
+    border-radius: 10px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+    font-size: 1rem;
+    color: #333;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Message Bubbles */
+.user-message {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    margin: 5px 0;
+    border-radius: 20px 20px 0 20px;
+    text-align: right;
+    max-width: 80%;
+    margin-left: auto;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    font-size: 1rem;
+    animation: slideInRight 0.3s ease-out;
+}
+
+.bot-message {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 15px;
+    margin: 5px 0;
+    border-radius: 20px 20px 20px 0;
+    text-align: left;
+    max-width: 80%;
+    margin-right: auto;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    font-size: 1rem;
+    animation: slideInLeft 0.3s ease-out;
+}
+
+/* Input and Button Styles (Updated) */
+.input-container {
+    display: flex; /* Align input and button on the same line */
+    align-items: center; /* Vertically align the button and input */
+    margin-top: 10px;
+    justify-content: space-between; /* Ensure there's space between the input and button */
+}
+
+input {
+    width: 80%;
+    padding: 10px;
+    font-size: 1rem;
+    margin-right: 10px; /* Add space between input and button */
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    background-color: #f7f7f7;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    outline: none;
+    border-color: #007BFF;
+    background-color: #fff;
+}
+
+button {
+    width: 50px;
+    padding: 10px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: #45a049;
+}
+
+/* Button: Pressed animation */
+button:active {
+    transform: scale(0.95);
+}
+
+/* Animation for Message Entry */
+@keyframes slideInRight {
+    0% {
+        transform: translateX(50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInLeft {
+    0% {
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
