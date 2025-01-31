@@ -4,8 +4,7 @@ Sure! Here's an enhanced version of your `README.md` with more information:
 
 # G-Bot: AI-Powered Chatbot using FastAPI & Gemini API
 
-G-Bot is an AI-powered chatbot built using **FastAPI** for the backend and **Google's Gemini API** for AI-generated responses. The chatbot is designed to be lightweight, fast, and easy to interact with. It features a simple UI, real-time message exchanges, and is deployed for free on **Railway**.
-
+G-Bot is an AI-powered chatbot built using **FastAPI** for the backend and **Google's Gemini API** for AI-generated responses. The chatbot is designed to be lightweight, fast, and easy to interact with. It features a simple UI, real-time message exchanges.
 This project serves as an interactive assistant that can understand user input and generate human-like responses through the power of generative AI.
 
 ---
