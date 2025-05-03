@@ -1,39 +1,41 @@
-async function sendMessage(){
-    let userInput = document.getElementById("user-input").value;
+async function sendMessage() {
+    const userInputField = document.getElementById("user-input");
+    const userInput = userInputField.value.trim();
+    const chatBox = document.getElementById("chat-box");
+
     if (!userInput) return;
 
-    let chatBox = document.getElementById("chat-box");
-
-    // Display User Message
-    let userMessage = `<p class="user-message"><strong>You:</strong> ${userInput}</p>`;
+    // Display user's message
+    const userMessage = `<div class="user-message"><strong>You:</strong> ${userInput}</div>`;
     chatBox.innerHTML += userMessage;
+    userInputField.value = "";
 
-    document.getElementById("user-input").value = "";
+    try {
+        const response = await fetch("/chat", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ message: userInput })
+        });
 
-    // Send Message to Backend
-    let response = await fetch("/chat", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ message: userInput })
-    });
+        const data = await response.json();
+        const botResponseHTML = data.response || "⚠️ No response from the bot.";
 
-    let data = await response.json();
+        // Display bot's response (already HTML formatted via markdown2 on the backend)
+        const botMessage = `<div class="bot-message"><strong>Bot:</strong><br>${botResponseHTML}</div>`;
+        chatBox.innerHTML += botMessage;
+    } catch (error) {
+        console.error("Error:", error);
+        chatBox.innerHTML += `<div class="bot-message"><strong>Bot:</strong> ⚠️ Error: Could not connect to the server.</div>`;
+    }
 
-    // Format Bot Response: replace newline characters with <br> tags
-    let formattedBotMessage = data.response.replace(/\n/g, "<br>");
-
-    // Display Bot Response
-    let botMessage = `<p class="bot-message"><strong>Bot:</strong> ${formattedBotMessage}</p>`;
-    chatBox.innerHTML += botMessage;
-
-    // Auto-scroll to the latest message
     chatBox.scrollTop = chatBox.scrollHeight;
 }
 
-document.getElementById("user-input").addEventListener("keypress", function(event){
-    if (event.key === "Enter"){
+// Send message on Enter key
+document.getElementById("user-input").addEventListener("keypress", function (event) {
+    if (event.key === "Enter") {
         event.preventDefault();
         sendMessage();
     }
